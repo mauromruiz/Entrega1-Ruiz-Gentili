@@ -1,7 +1,5 @@
 from http.client import HTTPResponse
-from django.http import HttpResponse
 from datetime import datetime
-from django.template import Context, Template, loader
 from django.shortcuts import render
 import random
 from Personas.models import Persona
