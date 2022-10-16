@@ -4,5 +4,5 @@ from Personas import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('Ver_persona/', views.ver_persona, name='Ver_persona'),
-    path('Crear_persona/<str:nombre>/<str:apellido>/', views.crear_persona),
+    path('Crear_persona/', views.crear_persona, name='Crear_persona'),
 ]

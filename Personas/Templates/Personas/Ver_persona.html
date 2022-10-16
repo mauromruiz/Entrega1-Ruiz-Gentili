@@ -10,9 +10,15 @@
 
 {% block contenido2 %}
     <p>Listado de Personas creadas:</p>
+
+    <form action={% url 'Ver_persona' %} method="GET">
+        {{formulario}}
+        <button>Buscar Persona</button>
+    </form>
+
     <p>
         {% for persona in Personas %}
-        <li>{{persona.id}} - {{persona.nombre}} {{persona.apellido}} {{persona.edad}} </li>
+        <li> {{persona.nombre}} {{persona.apellido}} {{persona.edad}} </li>
         {% endfor %}
     </p>
 {% endblock contenido2 %}
