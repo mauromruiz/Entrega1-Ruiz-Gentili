@@ -17,8 +17,17 @@
     </form>
 
     <p>
+        {% if Personas %}
+
         {% for persona in Personas %}
         <li> {{persona.nombre}} {{persona.apellido}} {{persona.edad}} </li>
         {% endfor %}
+
+        {% else %}
+
+        <p>No se encontraron resultados.</p>
+
+        {% endif %}
+        
     </p>
 {% endblock contenido2 %}

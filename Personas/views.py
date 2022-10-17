@@ -3,6 +3,12 @@ from django.shortcuts import render, redirect
 from Personas.models import Persona
 from Personas.forms import BuscarPersonaFormulario, PersonaFormulario
 
+def index(request):
+    return render(request, 'Personas/index.html')
+
+def about(request):
+    return render(request, 'Personas/About.html')
+
 def ver_persona (request):
     
     nombre = request.GET.get('nombre', None)
@@ -27,7 +33,7 @@ def crear_persona (request):
             nombre = data['nombre']
             apellido = data['apellido']
             edad = data['edad']
-            fecha_creacion = data.get('fecha_creacion', datetime.now())
+            fecha_creacion = data['fecha_creacion'] or datetime.now()
             
             persona = Persona(nombre=nombre, apellido=apellido, edad=edad, fecha_creacion=fecha_creacion)
             persona.save()
@@ -37,6 +43,3 @@ def crear_persona (request):
     formulario = PersonaFormulario()
     
     return render(request, 'Personas/Crear_persona.html', {'formulario': formulario})
-
-def index(request):
-    return render(request, 'Personas/index.html')
