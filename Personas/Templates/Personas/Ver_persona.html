@@ -11,16 +11,17 @@
 {% block contenido2 %}
     <p>Listado de Personas creadas:</p>
 
-    <form action={% url 'Ver_persona' %} method="GET">
-        {{formulario}}
-        <button>Buscar Persona</button>
-    </form>
-
     <p>
-        {% if Personas %}
+        {% if object_list %}
 
-        {% for persona in Personas %}
-        <li> {{persona.nombre}} {{persona.apellido}} {{persona.edad}} </li>
+        {% for persona in object_list %}
+            <li> 
+                {{persona}}
+                <p>
+                    <a class="nav-brand" href= {% url 'Editar_persona' persona.id %} -> Editar</a>
+                    <a class="nav-brand" href= {% url 'Eliminar_persona' persona.id %} -> Eliminar</a>
+                </p>
+            </li>
         {% endfor %}
 
         {% else %}

@@ -7,4 +7,4 @@ class Persona(models.Model):
     fecha_creacion = models.DateField(null=True)
 
     def __str__(self):
-        return f'{self.nombre} {self.apellido}'
+        return f'Nombre: {self.nombre} - Apellido: {self.apellido} - Edad: {self.edad}'

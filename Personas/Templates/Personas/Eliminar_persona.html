@@ -1,0 +1,15 @@
+{% extends 'Personas/Herencias.html' %}
+
+{% block title_pagina %}
+    <title>Eliminar Persona</title>
+{% endblock title_pagina %}
+
+{% block contenido %}
+    <form action={% url 'Eliminar_persona' object.id %} method="POST">
+        {% csrf_token %}
+        <p>
+            ¿Desea eliminar a {{object}} de la lista de Personas?
+        </p>
+        <button>Eliminar</button>
+    </form>
+{% endblock contenido %}

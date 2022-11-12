@@ -1,7 +1,8 @@
-from datetime import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from Personas.models import Persona
-from Personas.forms import BuscarPersonaFormulario, PersonaFormulario
+
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 def index(request):
     return render(request, 'Personas/index.html')
@@ -9,37 +10,24 @@ def index(request):
 def about(request):
     return render(request, 'Personas/About.html')
 
-def ver_persona (request):
-    
-    nombre = request.GET.get('nombre', None)
-    
-    if nombre:
-        personas = Persona.objects.filter(nombre__icontains=nombre)
-    else:
-        personas = Persona.objects.all()
-    
-    formulario = BuscarPersonaFormulario()
-    
-    return render(request, 'Personas/Ver_persona.html', {'Personas': personas, 'formulario': formulario})
+class Ver_persona(ListView):
+    model = Persona
+    template_name = 'Personas/Ver_persona.html'
 
-def crear_persona (request):
+class Crear_persona(CreateView):
+    model = Persona
+    success_url = '/Ver_persona/'
+    template_name = 'Personas/Crear_persona.html'
+    fields = ['nombre', 'apellido', 'edad', 'fecha_creacion']
     
-    if request.method == 'POST':
-        
-        formulario = PersonaFormulario(request.POST)
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-            
-            nombre = data['nombre']
-            apellido = data['apellido']
-            edad = data['edad']
-            fecha_creacion = data['fecha_creacion'] or datetime.now()
-            
-            persona = Persona(nombre=nombre, apellido=apellido, edad=edad, fecha_creacion=fecha_creacion)
-            persona.save()
-        
-        return redirect('Ver_persona')
+class Editar_persona(UpdateView):
+    model = Persona
+    success_url = '/Ver_persona/'
+    template_name = 'Personas/Editar_persona.html'
+    fields = ['nombre', 'apellido', 'edad', 'fecha_creacion']
     
-    formulario = PersonaFormulario()
+class Eliminar_persona(DeleteView):
+    model = Persona
+    success_url = '/Ver_persona/'
+    template_name = 'Personas/Eliminar_persona.html'
     
-    return render(request, 'Personas/Crear_persona.html', {'formulario': formulario})
