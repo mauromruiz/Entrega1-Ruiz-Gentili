@@ -1,0 +1,16 @@
+{% extends 'Personas/Herencias.html' %}
+
+{% block title_pagina %}
+    <title>Cambiar Contraseña</title>
+{% endblock title_pagina %}
+
+{% block contenido %}
+    <form action={% url 'cambiar_contraseña' %} method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{form}}
+        </table> 
+        <button>Confirmar</button>
+    </form>
+{% endblock contenido %}
