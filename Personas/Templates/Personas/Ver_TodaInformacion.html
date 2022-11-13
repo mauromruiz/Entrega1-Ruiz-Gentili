@@ -1,0 +1,21 @@
+{% extends 'Personas/index.html' %}
+
+{% block title_pagina %}
+    <title>Personas</title>
+{% endblock title_pagina %}
+
+{% block texto_header %}
+    Informacion Completa de Personas
+{% endblock texto_header %}
+
+{% block contenido2 %}
+    <p>Persona:</p>
+
+    <p>
+        <li>Nombre: {{persona.nombre}}</li>
+        <li>Apellido: {{persona.apellido}} </li> 
+        <li>Edad: {{persona.edad}} </li> 
+        <li>Fecha de creacion: {{persona.fecha_creacion}} </li>
+        <li>Descripcion: {{persona.descripcion | safe }} </li>   
+    </p>
+{% endblock contenido2 %}
