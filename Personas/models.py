@@ -9,4 +9,4 @@ class Persona(models.Model):
     descripcion = RichTextField(null=True)
 
     def __str__(self):
-        return f'Nombre: {self.nombre} - Apellido: {self.apellido} - Edad: {self.edad}'
+        return f'Nombre: {self.nombre} - Apellido: {self.apellido}'

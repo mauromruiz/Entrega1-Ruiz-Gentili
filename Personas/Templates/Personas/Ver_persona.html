@@ -21,8 +21,9 @@
 
         {% for persona in object_list %}
             <li> 
+                {{persona}}
                 <p>
-                    <a class="nav-brand" href= {% url 'Ver_TodaInformacion' persona.id %} -> {{persona}}</a>
+                    <a class="nav-brand" href= {% url 'Ver_TodaInformacion' persona.id %} -> Ver más</a>
                     <a class="nav-brand" href= {% url 'Editar_persona' persona.id %} -> Editar</a>
                     <a class="nav-brand" href= {% url 'Eliminar_persona' persona.id %} -> Eliminar</a>
                 </p>
