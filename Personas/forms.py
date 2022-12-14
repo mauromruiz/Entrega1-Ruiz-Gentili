@@ -6,6 +6,7 @@ class PersonaFormulario(forms.Form):
     apellido = forms.CharField(max_length=30)
     edad = forms.IntegerField()
     fecha_creacion = forms.DateField(required=False)
+    foto_persona = forms.ImageField(required=False)
     descripcion = RichTextFormField(required=False)
     
     

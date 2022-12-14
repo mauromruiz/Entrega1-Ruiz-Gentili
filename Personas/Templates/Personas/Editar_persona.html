@@ -5,7 +5,7 @@
 {% endblock title_pagina %}
 
 {% block contenido %}
-    <form action={% url 'Editar_persona' persona.id %} method="POST">
+    <form action={% url 'Editar_persona' persona.id %} method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
 
         <table>

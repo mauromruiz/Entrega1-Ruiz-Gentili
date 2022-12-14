@@ -17,9 +17,10 @@ class MiFormularioDeRegistro(UserCreationForm):
         
 class EditarPerfilFormulario(forms.Form):
     email = forms.CharField()
-    first_name = forms.CharField(label='Nombre')
-    last_name = forms.CharField(label='Apellido')
+    first_name = forms.CharField(label='Nombre',required=False)
+    last_name = forms.CharField(label='Apellido',required=False)
     avatar = forms.ImageField(required=False)
+    nacionalidad = forms.CharField(label='Nacionalidad',required=False)
 
 class CambioDePassword(PasswordChangeForm):
     old_password = forms.CharField(label='Contraseña Antigua', widget=forms.PasswordInput)

@@ -34,13 +34,13 @@ class Crear_persona(LoginRequiredMixin, CreateView):
     model = Persona
     success_url = '/Ver_persona/'
     template_name = 'Personas/Crear_persona.html'
-    fields = ['nombre', 'apellido', 'edad', 'fecha_creacion', 'descripcion']
+    fields = ['nombre', 'apellido', 'edad', 'fecha_creacion', 'descripcion', 'foto_persona']
     
 class Editar_persona(LoginRequiredMixin, UpdateView):
     model = Persona
     success_url = '/Ver_persona/'
     template_name = 'Personas/Editar_persona.html'
-    fields = ['nombre', 'apellido', 'edad', 'fecha_creacion', 'descripcion']
+    fields = ['nombre', 'apellido', 'edad', 'fecha_creacion', 'descripcion', 'foto_persona']
     
 class Eliminar_persona(LoginRequiredMixin, DeleteView):
     model = Persona
