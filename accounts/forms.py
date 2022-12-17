@@ -19,7 +19,7 @@ class EditarPerfilFormulario(forms.Form):
     email = forms.CharField()
     first_name = forms.CharField(label='Nombre',required=False)
     last_name = forms.CharField(label='Apellido',required=False)
-    avatar = forms.ImageField(required=False)
+    avatar = forms.ImageField(label='Avatar',required=False)
     nacionalidad = forms.CharField(label='Nacionalidad',required=False)
 
 class CambioDePassword(PasswordChangeForm):
